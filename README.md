@@ -1,4 +1,16 @@
-# Ciphe Notes
+# <div align="center"><img src="pdf_converter/android/app/src/main/res/drawable-hdpi/logo.png" alt="icon" width=30> Ciphey Notes | Save Secret Notes</div>
+
+
+<div align="center">Secret Note taking app, bult using modern design architecture components, Jetpack Libraries, Retrofit, Firebase, etc.
+
+![Kotlin](https://img.shields.io/badge/Kotlin-white?logo=kotlin)
+![Android](https://img.shields.io/badge/MVVM-green?logo=android)
+</div>
+
+Note Message             |  Encrypted Key
+:-------------------------:|:-------------------------:
+<a  width="10" href='https://play.google.com/store/apps/details?id=com.hack.imagesplayer'><img alt='Flare Image' src='Mock/view_note.jpeg'/></a>  |  <a  width="10" href='https://play.google.com/store/apps/details?id=com.hack.imagesplayer'><img alt='Flare Image' src='Mock/copy_key.jpeg'/></a>
+
 
 
 ### LICENSE
