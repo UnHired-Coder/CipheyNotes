@@ -1,4 +1,4 @@
-# <div align="center"><img src="pdf_converter/android/app/src/main/res/drawable-hdpi/logo.png" alt="icon" width=30> Ciphey Notes | Save Secret Notes</div>
+# <div align="center"><img src="/app/src/main/res/drawable/logo.png" alt="icon" width=30> Ciphey Notes | Save Secret Notes</div>
 
 
 <div align="center">Secret Note taking app, bult using modern design architecture components, Jetpack Libraries, Retrofit, Firebase, etc.
