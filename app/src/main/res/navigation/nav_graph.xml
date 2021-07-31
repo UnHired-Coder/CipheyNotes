@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragmentSelectOperation">
+
+    <fragment
+        android:id="@+id/addNotesFragment"
+        android:name="com.unhiredcoder.cipheynotes.fragments.FragmentAddNotes"
+        android:label="Add Note"
+        tools:layout="@layout/fragment_add_notes">
+        <action
+            android:id="@+id/action_addNotesFragment_to_fragmentSelectOperation"
+            app:destination="@id/fragmentSelectOperation" />
+        <action
+            android:id="@+id/action_addNotesFragment_to_fragmentAddImageNotes"
+            app:destination="@id/fragmentAddImageNotes" />
+        <action
+            android:id="@+id/action_addNotesFragment_to_fragmentAddTextNotes"
+            app:destination="@id/fragmentAddTextNotes" />
+        <action
+            android:id="@+id/action_addNotesFragment_to_fragmentSelectOperation2"
+            app:destination="@id/fragmentSelectOperation" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentFindNotes"
+        android:name="com.unhiredcoder.cipheynotes.fragments.FragmentFindNotes"
+        android:label="Find Note"
+        tools:layout="@layout/fragment_find_notes">
+        <action
+            android:id="@+id/action_fragmentFindNotes_to_fragmentSelectOperation"
+            app:destination="@id/fragmentSelectOperation" />
+        <action
+            android:id="@+id/action_fragmentFindNotes_to_fragmentViewNote"
+            app:destination="@id/fragmentViewNote" />
+        <action
+            android:id="@+id/action_fragmentFindNotes_to_fragmentSelectOperation2"
+            app:destination="@id/fragmentSelectOperation" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentSelectOperation"
+        android:name="com.unhiredcoder.cipheynotes.fragments.FragmentSelectOperation"
+        android:label="Ciphey Notes"
+        tools:layout="@layout/fragment_select_operation">
+        <action
+            android:id="@+id/action_fragmentSelectOperation_to_addNotesFragment"
+            app:destination="@id/addNotesFragment" />
+        <action
+            android:id="@+id/action_fragmentSelectOperation_to_fragmentFindNotes"
+            app:destination="@id/fragmentFindNotes" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentAddImageNotes"
+        android:name="com.unhiredcoder.cipheynotes.fragments.fragmentNotes.FragmentAddImageNotes"
+        android:label="Image Note"
+        tools:layout="@layout/fragment_add_image_notes">
+        <action
+            android:id="@+id/action_fragmentAddImageNotes_to_fragmentSelectOperation"
+            app:destination="@id/fragmentSelectOperation" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentAddTextNotes"
+        android:name="com.unhiredcoder.cipheynotes.fragments.fragmentNotes.FragmentAddTextNotes"
+        android:label="Text Note"
+        tools:layout="@layout/fragment_add_text_notes">
+        <action
+            android:id="@+id/action_fragmentAddTextNotes_to_fragmentSelectOperation"
+            app:destination="@id/fragmentSelectOperation" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentViewNote"
+        android:name="com.unhiredcoder.cipheynotes.fragments.fragmentNotes.FragmentViewNote"
+        android:label="View Note">
+        <argument
+            android:name="Note"
+            app:argType="com.unhiredcoder.cipheynotes.modals.TextNote" />
+        <action
+            android:id="@+id/action_fragmentViewNote_to_fragmentFindNotes"
+            app:destination="@id/fragmentFindNotes" />
+    </fragment>
+</navigation>

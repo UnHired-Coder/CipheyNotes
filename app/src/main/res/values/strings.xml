@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Ciphey Notes</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="find_notes">Find Notes</string>
+    <string name="image_note">Image Note</string>
+    <string name="text_note">Text Note</string>
+    <string name="add_note">Add Note</string>
+    <string name="enter_secret_key">Enter Sectret Key</string>
+    <string name="share_key_code">Copy Key</string>
+    <string name="you_will_need_this_key_to_find_your_note">You will need this key to find your Note.</string>
+    <string name="find">Find</string>
+</resources>
