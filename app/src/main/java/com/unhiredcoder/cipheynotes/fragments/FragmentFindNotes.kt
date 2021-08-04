@@ -16,11 +16,15 @@ import com.unhiredcoder.cipheynotes.databinding.FragmentFindNotesBinding
 import com.unhiredcoder.cipheynotes.fragments.fragmentNotes.mvvmNote.common.RepositoryNotes
 import com.unhiredcoder.cipheynotes.fragments.fragmentNotes.mvvmNote.findNotes.FactoryViewModelFindNotes
 import com.unhiredcoder.cipheynotes.fragments.fragmentNotes.mvvmNote.findNotes.ViewModelFindNotes
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
-
+@AndroidEntryPoint
 class FragmentFindNotes : Fragment() {
 
     lateinit var binding: FragmentFindNotesBinding
+
+    @Inject
     lateinit var repositoryNotes: RepositoryNotes
     lateinit var viewModel: ViewModelFindNotes
     private lateinit var deviceId: String
@@ -37,7 +41,6 @@ class FragmentFindNotes : Fragment() {
         deviceId = Settings.Secure.getString(context?.contentResolver, Settings.Secure.ANDROID_ID)
             .toString()
 
-        repositoryNotes = RepositoryNotes()
         viewModel = ViewModelProvider(
             this,
             FactoryViewModelFindNotes(repositoryNotes = repositoryNotes, deviceId = deviceId)

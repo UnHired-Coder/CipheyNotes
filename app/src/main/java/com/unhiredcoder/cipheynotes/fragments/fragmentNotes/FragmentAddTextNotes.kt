@@ -20,12 +20,18 @@ import com.unhiredcoder.cipheynotes.fragments.fragmentNotes.mvvmNote.addNotes.Fa
 import com.unhiredcoder.cipheynotes.fragments.fragmentNotes.mvvmNote.common.RepositoryNotes
 import com.unhiredcoder.cipheynotes.fragments.fragmentNotes.mvvmNote.addNotes.ViewModelAddNotes
 import com.unhiredcoder.cipheynotes.modals.TextNote
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+
+@AndroidEntryPoint
 class FragmentAddTextNotes : Fragment() {
 
     private lateinit var binding: FragmentAddTextNotesBinding
     private lateinit var viewModel: ViewModelAddNotes
-    private lateinit var repositoryNotes: RepositoryNotes
+
+    @Inject
+    lateinit var repositoryNotes: RepositoryNotes
     private lateinit var deviceId: String
 
 
@@ -40,7 +46,6 @@ class FragmentAddTextNotes : Fragment() {
 
         deviceId = Settings.Secure.getString(context?.contentResolver, Settings.Secure.ANDROID_ID)
             .toString()
-        repositoryNotes = RepositoryNotes()
         viewModel =
             ViewModelProvider(
                 this,
