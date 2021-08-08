@@ -3,6 +3,7 @@ package com.unhiredcoder.cipheynotes.fragments.fragmentNotes.mvvmNote.findNotes
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.unhiredcoder.cipheynotes.fragments.fragmentNotes.di.DeviceId
 import com.unhiredcoder.cipheynotes.fragments.fragmentNotes.mvvmNote.common.RepositoryNotes
 import com.unhiredcoder.cipheynotes.modals.TextNote
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -13,13 +14,13 @@ import java.lang.Exception
 import javax.inject.Inject
 
 @HiltViewModel
-class ViewModelFindNotes  @Inject constructor(
-    private val repositoryNotes: RepositoryNotes
+class ViewModelFindNotes @Inject constructor(
+    private val repositoryNotes: RepositoryNotes,
+    @DeviceId private val deviceId: String
 ) : ViewModel() {
     val key: MutableLiveData<String> = MutableLiveData(null)
     val result: MutableLiveData<TextNote> = MutableLiveData(null)
     val status: MutableLiveData<String> = MutableLiveData(null)
-    lateinit var  deviceId: String
 
     fun findNote() {
         result.value = null

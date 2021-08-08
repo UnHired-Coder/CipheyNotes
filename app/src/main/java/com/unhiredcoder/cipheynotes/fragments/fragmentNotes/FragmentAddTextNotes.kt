@@ -6,7 +6,6 @@ import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
 import android.os.Bundle
-import android.provider.Settings
 import android.view.*
 import android.widget.Button
 import android.widget.TextView
@@ -14,11 +13,9 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
 import com.unhiredcoder.cipheynotes.R
 import com.unhiredcoder.cipheynotes.databinding.FragmentAddTextNotesBinding
-import com.unhiredcoder.cipheynotes.fragments.fragmentNotes.mvvmNote.addNotes.FactoryViewModelAddNotes
-import com.unhiredcoder.cipheynotes.fragments.fragmentNotes.mvvmNote.common.RepositoryNotes
+import com.unhiredcoder.cipheynotes.fragments.fragmentNotes.di.DeviceId
 import com.unhiredcoder.cipheynotes.fragments.fragmentNotes.mvvmNote.addNotes.ViewModelAddNotes
 import com.unhiredcoder.cipheynotes.modals.TextNote
 import dagger.hilt.android.AndroidEntryPoint
@@ -30,6 +27,9 @@ class FragmentAddTextNotes : Fragment() {
 
     private lateinit var binding: FragmentAddTextNotesBinding
     private val viewModel: ViewModelAddNotes by viewModels()
+
+    @Inject
+    @DeviceId
     lateinit var deviceId: String
 
     @SuppressLint("HardwareIds")
@@ -40,11 +40,6 @@ class FragmentAddTextNotes : Fragment() {
         binding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_add_text_notes, container, false)
         val view: View = binding.root
-
-        deviceId =
-            Settings.Secure.getString(context?.contentResolver, Settings.Secure.ANDROID_ID)
-                .toString()
-        viewModel.deviceId = deviceId
         binding.noteViewModel = viewModel
         binding.lifecycleOwner = this
 

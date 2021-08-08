@@ -10,6 +10,6 @@ class FactoryViewModelAddNotes(
 ) :
     ViewModelProvider.Factory {
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        return ViewModelAddNotes(repositoryNotes) as T
+        return ViewModelAddNotes(repositoryNotes, deviceId = "null") as T
     }
 }

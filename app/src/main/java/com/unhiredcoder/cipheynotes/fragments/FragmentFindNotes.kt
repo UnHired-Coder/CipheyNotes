@@ -30,10 +30,6 @@ class FragmentFindNotes : Fragment() {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_find_notes, container, false)
         val view: View = binding.root
 
-        val deviceId =
-            Settings.Secure.getString(context?.contentResolver, Settings.Secure.ANDROID_ID)
-
-        viewModel.deviceId = deviceId
         binding.viewModel = viewModel
         binding.lifecycleOwner = this
 

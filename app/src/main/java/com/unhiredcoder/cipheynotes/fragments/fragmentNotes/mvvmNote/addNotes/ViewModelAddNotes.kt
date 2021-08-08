@@ -3,6 +3,7 @@ package com.unhiredcoder.cipheynotes.fragments.fragmentNotes.mvvmNote.addNotes
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.unhiredcoder.cipheynotes.fragments.fragmentNotes.di.DeviceId
 import com.unhiredcoder.cipheynotes.fragments.fragmentNotes.mvvmNote.common.RepositoryNotes
 import com.unhiredcoder.cipheynotes.modals.TextNote
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -14,6 +15,7 @@ import javax.inject.Inject
 @HiltViewModel
 class ViewModelAddNotes @Inject constructor(
     private val notesRepository: RepositoryNotes,
+    @DeviceId private val deviceId: String
 ) :
     ViewModel() {
 
@@ -21,7 +23,6 @@ class ViewModelAddNotes @Inject constructor(
         MutableLiveData("Write here!")
     val status: MutableLiveData<String> = MutableLiveData(null)
     val result: MutableLiveData<TextNote> = MutableLiveData(null)
-    lateinit var  deviceId: String
 
     private fun uploadNote(note: TextNote) {
         viewModelScope.launch {
