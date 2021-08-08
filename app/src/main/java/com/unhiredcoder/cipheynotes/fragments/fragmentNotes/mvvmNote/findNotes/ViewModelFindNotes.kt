@@ -5,19 +5,21 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.unhiredcoder.cipheynotes.fragments.fragmentNotes.mvvmNote.common.RepositoryNotes
 import com.unhiredcoder.cipheynotes.modals.TextNote
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.lang.Exception
+import javax.inject.Inject
 
-class ViewModelFindNotes(
-    private val repositoryNotes: RepositoryNotes,
-    private val deviceId: String
+@HiltViewModel
+class ViewModelFindNotes  @Inject constructor(
+    private val repositoryNotes: RepositoryNotes
 ) : ViewModel() {
     val key: MutableLiveData<String> = MutableLiveData(null)
     val result: MutableLiveData<TextNote> = MutableLiveData(null)
     val status: MutableLiveData<String> = MutableLiveData(null)
-
+    lateinit var  deviceId: String
 
     fun findNote() {
         result.value = null

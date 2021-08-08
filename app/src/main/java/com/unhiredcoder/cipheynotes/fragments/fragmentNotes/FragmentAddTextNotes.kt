@@ -13,6 +13,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import com.unhiredcoder.cipheynotes.R
 import com.unhiredcoder.cipheynotes.databinding.FragmentAddTextNotesBinding
@@ -28,12 +29,8 @@ import javax.inject.Inject
 class FragmentAddTextNotes : Fragment() {
 
     private lateinit var binding: FragmentAddTextNotesBinding
-    private lateinit var viewModel: ViewModelAddNotes
-
-    @Inject
-    lateinit var repositoryNotes: RepositoryNotes
-    private lateinit var deviceId: String
-
+    private val viewModel: ViewModelAddNotes by viewModels()
+    lateinit var deviceId: String
 
     @SuppressLint("HardwareIds")
     override fun onCreateView(
@@ -44,16 +41,10 @@ class FragmentAddTextNotes : Fragment() {
             DataBindingUtil.inflate(inflater, R.layout.fragment_add_text_notes, container, false)
         val view: View = binding.root
 
-        deviceId = Settings.Secure.getString(context?.contentResolver, Settings.Secure.ANDROID_ID)
-            .toString()
-        viewModel =
-            ViewModelProvider(
-                this,
-                FactoryViewModelAddNotes(repositoryNotes = repositoryNotes, deviceId = deviceId)
-            ).get(
-                ViewModelAddNotes::class.java
-            )
-
+        deviceId =
+            Settings.Secure.getString(context?.contentResolver, Settings.Secure.ANDROID_ID)
+                .toString()
+        viewModel.deviceId = deviceId
         binding.noteViewModel = viewModel
         binding.lifecycleOwner = this
 

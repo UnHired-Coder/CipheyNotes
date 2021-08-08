@@ -8,26 +8,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.unhiredcoder.cipheynotes.R
 import com.unhiredcoder.cipheynotes.databinding.FragmentFindNotesBinding
-import com.unhiredcoder.cipheynotes.fragments.fragmentNotes.mvvmNote.common.RepositoryNotes
-import com.unhiredcoder.cipheynotes.fragments.fragmentNotes.mvvmNote.findNotes.FactoryViewModelFindNotes
 import com.unhiredcoder.cipheynotes.fragments.fragmentNotes.mvvmNote.findNotes.ViewModelFindNotes
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class FragmentFindNotes : Fragment() {
 
     lateinit var binding: FragmentFindNotesBinding
-
-    @Inject
-    lateinit var repositoryNotes: RepositoryNotes
-    lateinit var viewModel: ViewModelFindNotes
-    private lateinit var deviceId: String
+    private val viewModel: ViewModelFindNotes by viewModels()
 
     @SuppressLint("HardwareIds")
     override fun onCreateView(
@@ -37,18 +30,12 @@ class FragmentFindNotes : Fragment() {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_find_notes, container, false)
         val view: View = binding.root
 
+        val deviceId =
+            Settings.Secure.getString(context?.contentResolver, Settings.Secure.ANDROID_ID)
 
-        deviceId = Settings.Secure.getString(context?.contentResolver, Settings.Secure.ANDROID_ID)
-            .toString()
-
-        viewModel = ViewModelProvider(
-            this,
-            FactoryViewModelFindNotes(repositoryNotes = repositoryNotes, deviceId = deviceId)
-        ).get(ViewModelFindNotes::class.java)
-
+        viewModel.deviceId = deviceId
         binding.viewModel = viewModel
         binding.lifecycleOwner = this
-
 
         binding.btnFindNote.apply {
             setOnClickListener {
