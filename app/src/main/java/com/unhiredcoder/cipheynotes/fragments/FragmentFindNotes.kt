@@ -2,7 +2,6 @@ package com.unhiredcoder.cipheynotes.fragments
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.provider.Settings
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -13,7 +12,7 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.unhiredcoder.cipheynotes.R
 import com.unhiredcoder.cipheynotes.databinding.FragmentFindNotesBinding
-import com.unhiredcoder.cipheynotes.fragments.fragmentNotes.mvvmNote.findNotes.ViewModelFindNotes
+import com.unhiredcoder.cipheynotes.fragments.fragmentNotes.notes.findNotes.ViewModelFindNotes
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

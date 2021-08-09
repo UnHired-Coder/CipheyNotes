@@ -7,7 +7,7 @@
 
         <variable
             name="noteViewModel"
-            type="com.unhiredcoder.cipheynotes.fragments.fragmentNotes.mvvmNote.addNotes.ViewModelAddNotes" />
+            type="com.unhiredcoder.cipheynotes.fragments.fragmentNotes.notes.addNotes.ViewModelAddNotes" />
 
     </data>
 

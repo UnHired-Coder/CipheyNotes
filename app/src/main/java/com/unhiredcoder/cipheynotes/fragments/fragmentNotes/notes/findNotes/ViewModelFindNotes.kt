@@ -1,10 +1,10 @@
-package com.unhiredcoder.cipheynotes.fragments.fragmentNotes.mvvmNote.findNotes
+package com.unhiredcoder.cipheynotes.fragments.fragmentNotes.notes.findNotes
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.unhiredcoder.cipheynotes.fragments.fragmentNotes.di.DeviceId
-import com.unhiredcoder.cipheynotes.fragments.fragmentNotes.mvvmNote.common.RepositoryNotes
+import com.unhiredcoder.cipheynotes.fragments.fragmentNotes.notes.common.RepositoryNotes
 import com.unhiredcoder.cipheynotes.modals.TextNote
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers

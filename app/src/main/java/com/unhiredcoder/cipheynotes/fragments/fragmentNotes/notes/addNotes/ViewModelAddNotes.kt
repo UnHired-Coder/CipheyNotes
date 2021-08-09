@@ -1,15 +1,15 @@
-package com.unhiredcoder.cipheynotes.fragments.fragmentNotes.mvvmNote.addNotes
+package com.unhiredcoder.cipheynotes.fragments.fragmentNotes.notes.addNotes
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.unhiredcoder.cipheynotes.fragments.fragmentNotes.di.DeviceId
-import com.unhiredcoder.cipheynotes.fragments.fragmentNotes.mvvmNote.common.RepositoryNotes
+import com.unhiredcoder.cipheynotes.fragments.fragmentNotes.notes.common.RepositoryNotes
+import com.unhiredcoder.cipheynotes.fragments.fragmentNotes.util.genKey
 import com.unhiredcoder.cipheynotes.modals.TextNote
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import java.lang.Exception
-import java.util.*
 import javax.inject.Inject
 
 @HiltViewModel
@@ -56,22 +56,10 @@ class ViewModelAddNotes @Inject constructor(
     }
 
     private fun clearNote() {
-        content.value = ""
+        content.value = null
     }
 
     private fun getKey(): String {
-        return deviceId + "_" + anotherRandomIDGenerator()
-    }
-
-    private fun anotherRandomIDGenerator(): String {
-        val len = 6
-        val base = "ABCDEFGHKLMNOPQRSTWXYZabcdefghjkmnpqrstwxyz"
-        val max = base.length - 1
-        var activatecode = ""
-        val random = Random()
-        while (activatecode.length < len + 1) {
-            activatecode += base[random.nextInt(max)]
-        }
-        return activatecode
+        return deviceId.genKey()
     }
 }

@@ -1,8 +1,8 @@
-package com.unhiredcoder.cipheynotes.fragments.fragmentNotes.mvvmNote.addNotes
+package com.unhiredcoder.cipheynotes.fragments.fragmentNotes.notes.addNotes
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.unhiredcoder.cipheynotes.fragments.fragmentNotes.mvvmNote.common.RepositoryNotes
+import com.unhiredcoder.cipheynotes.fragments.fragmentNotes.notes.common.RepositoryNotes
 
 @Suppress("UNCHECKED_CAST")
 class FactoryViewModelAddNotes(

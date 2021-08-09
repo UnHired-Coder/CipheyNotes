@@ -16,7 +16,7 @@ import androidx.fragment.app.viewModels
 import com.unhiredcoder.cipheynotes.R
 import com.unhiredcoder.cipheynotes.databinding.FragmentAddTextNotesBinding
 import com.unhiredcoder.cipheynotes.fragments.fragmentNotes.di.DeviceId
-import com.unhiredcoder.cipheynotes.fragments.fragmentNotes.mvvmNote.addNotes.ViewModelAddNotes
+import com.unhiredcoder.cipheynotes.fragments.fragmentNotes.notes.addNotes.ViewModelAddNotes
 import com.unhiredcoder.cipheynotes.modals.TextNote
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject

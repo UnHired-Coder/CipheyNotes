@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.unhiredcoder.cipheynotes.fragments.fragmentNotes.mvvmNote.findNotes.ViewModelFindNotes" />
+            type="com.unhiredcoder.cipheynotes.fragments.fragmentNotes.notes.findNotes.ViewModelFindNotes" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

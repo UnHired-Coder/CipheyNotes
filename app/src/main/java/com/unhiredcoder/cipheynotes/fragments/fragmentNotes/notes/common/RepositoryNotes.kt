@@ -1,4 +1,4 @@
-package com.unhiredcoder.cipheynotes.fragments.fragmentNotes.mvvmNote.common
+package com.unhiredcoder.cipheynotes.fragments.fragmentNotes.notes.common
 
 import com.unhiredcoder.cipheynotes.modals.TextNote
 import com.unhiredcoder.cipheynotes.networks.NotesApiService
