@@ -17,6 +17,7 @@ import com.unhiredcoder.cipheynotes.R
 import com.unhiredcoder.cipheynotes.databinding.FragmentAddTextNotesBinding
 import com.unhiredcoder.cipheynotes.fragments.fragmentNotes.di.DeviceId
 import com.unhiredcoder.cipheynotes.fragments.fragmentNotes.notes.addNotes.ViewModelAddNotes
+import com.unhiredcoder.cipheynotes.fragments.fragmentNotes.util.decodeKey
 import com.unhiredcoder.cipheynotes.modals.TextNote
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -53,7 +54,7 @@ class FragmentAddTextNotes : Fragment() {
         val dialog = Dialog(requireContext())
         dialog.setContentView(R.layout.share_copy_secret_key_dialog)
 
-        val key = note.key?.drop(deviceId.length + 1)
+        val key = note.key?.decodeKey(deviceId.length)
 
         dialog.apply {
             findViewById<TextView>(R.id.tv_secret_key).text = key
